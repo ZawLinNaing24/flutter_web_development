@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/sections/about_me_section.dart';
+import 'package:portfolio_website/sections/contact_section.dart';
+import 'package:portfolio_website/sections/home_section.dart';
+import 'package:portfolio_website/sections/projects_section.dart';
+import 'package:portfolio_website/sections/stack_section.dart';
+import 'package:portfolio_website/sections/testimonials_section.dart';
+import 'package:portfolio_website/widgets/custom_appbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -9,6 +16,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late ScrollController _scrollController;
+
+  final GlobalKey homeSectionKey = GlobalKey();
+  final GlobalKey aboutMeSectionKey = GlobalKey();
+  final GlobalKey stackSectionKey = GlobalKey();
+  final GlobalKey projectSectionKey = GlobalKey();
+  final GlobalKey testimonialSectionKey = GlobalKey();
+  final GlobalKey contactSectionKey = GlobalKey();
 
   void initState() {
     super.initState();
@@ -23,15 +37,42 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: CustomAppbar(
+        scrollToSection: scrollToSection,
+        homeSectionKey: homeSectionKey,
+        aboutMeSectionKey: aboutMeSectionKey,
+        stackSectionKey: stackSectionKey,
+        projectSectionKey: projectSectionKey,
+        testimonialSectionKey: testimonialSectionKey,
+        contactSectionKey: contactSectionKey,
+      ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
+          children: [
+            HomeSection(key: homeSectionKey),
+            AboutMeSection(key: aboutMeSectionKey),
+            StackSection(key: stackSectionKey),
+            ProjectsSection(key: projectSectionKey),
+            TestimonialsSection(key: testimonialSectionKey),
+            ContactSection(key: contactSectionKey),
+          ],
         ),
       ),
     );
+  }
+
+  void scrollToSection(GlobalKey key) {
+    final context = key.currentContext;
+    if (context != null) {
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 }
