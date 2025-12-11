@@ -24,11 +24,13 @@ class _HomePageState extends State<HomePage> {
   final GlobalKey testimonialSectionKey = GlobalKey();
   final GlobalKey contactSectionKey = GlobalKey();
 
+  @override
   void initState() {
     super.initState();
     _scrollController = ScrollController();
   }
 
+  @override
   void dispose() {
     _scrollController.dispose();
     super.dispose();
