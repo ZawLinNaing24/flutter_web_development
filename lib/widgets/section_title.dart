@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:portfolio_website/constants/app_colors.dart';
 
 class SectionTitle extends StatelessWidget {

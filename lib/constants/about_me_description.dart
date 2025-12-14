@@ -1,5 +1,3 @@
-import "package:flutter/material.dart";
-
 const String header = "Curious about me? Here you have it:";
 const String body_1 =
     "I’m a passionate developer who specializes in flutter development. I am very enthusiastic about bringing the technical and visual aspects of digital products to life. User experience, pixel perfect design, and writing clear, readable, highly performant code matters to me.";

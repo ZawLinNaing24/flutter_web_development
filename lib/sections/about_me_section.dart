@@ -13,7 +13,7 @@ class AboutMeSection extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.grey[50]),
       child: Column(
         children: [
-          // SizedBox(height: 48),
+          SizedBox(height: 20),
           SectionTitle(title: "About Me", textStyle: sectionText),
           SizedBox(height: 48),
           SizedBox(
