@@ -6,6 +6,7 @@ import 'package:portfolio_website/sections/projects_section.dart';
 import 'package:portfolio_website/sections/stack_section.dart';
 import 'package:portfolio_website/sections/testimonials_section.dart';
 import 'package:portfolio_website/widgets/custom_appbar.dart';
+import 'package:portfolio_website/widgets/custom_footer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,6 +62,7 @@ class _HomePageState extends State<HomePage> {
             ProjectsSection(key: projectSectionKey),
             TestimonialsSection(key: testimonialSectionKey),
             ContactSection(key: contactSectionKey),
+            CustomFooter(),
           ],
         ),
       ),
@@ -74,6 +76,8 @@ class _HomePageState extends State<HomePage> {
         context,
         duration: const Duration(seconds: 1),
         curve: Curves.easeInOut,
+        alignment: 0.0, // Top alignment
+        alignmentPolicy: ScrollPositionAlignmentPolicy.explicit,
       );
     }
   }
